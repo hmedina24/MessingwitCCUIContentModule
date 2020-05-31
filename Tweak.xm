@@ -10,21 +10,17 @@
 
 	%orig;
 	
-	UIView * myView = MSHookIvar<UIView *>(self, "_containerView");
-
-	myView.backgroundColor = [UIColor redColor];
+	NSArray *allViews = MSHookIvar<NSArray *>(self, "_views");
 	
-	/*CGRect newFrame = myView.bounds;
+	for (UIView *subView in allViews) {
+		
+		if ([subView respondsToSelector:@selector(setBackgroundColor:)) {
+		
+			[subView setBackgroundColor:[UIColor redColor]];
+		
+		}
 	
-	newFrame.origin.x = myView.bounds.origin.x + 58;
-	
-	if ([self.moduleIdentifier isEqualToString:@"com.apple.control-center.ConnectivityModule"]) {
-	
-		[myView setFrame:newFrame];
-	
-	}*/
-	
-	// CGRect newFrame = CGRectMake(original.origin.x + 58, original.origin.y - 155.5, original.size.width, original.size.height);
+	}
 	
 }
 %end
