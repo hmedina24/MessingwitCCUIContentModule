@@ -4,10 +4,17 @@
 
 @end
 %hook CCUIContentModuleContentContainerView
--(id)initWithFrame:(CGRect)arg1{
-	%orig;
-	UIView * myView = MSHookIvar<UIView *>(self, "_view");
-	myView = [[UIView alloc] initWithFrame: CGRectMake(85,-182.5,153,153)];
+- (id)initWithFrame:(CGRect)arg1 {
+	
+	/* UIView * myView = MSHookIvar<UIView *>(self, "_view");
+	myView = [[UIView alloc] initWithFrame: CGRectMake(85,-182.5,153,153)]; */
+	
+	CGRect original = arg1;
+	
+	CGRect newFrame = CGRectMake(original.origin.x, original.original.y, original.bounds.size.width, original.bounds.size.height);
+	
+	return %orig(newFrame);
+	
 }
 %end
 
