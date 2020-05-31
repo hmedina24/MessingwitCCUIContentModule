@@ -12,7 +12,7 @@
 	
 	UIView * myView = MSHookIvar<UIView *>(self, "_containerView");
 
-	myView.backgroundColor = [UIColor=[red]];
+	myView.backgroundColor = [UIColor redColor];
 	
 	/*CGRect newFrame = myView.bounds;
 	
