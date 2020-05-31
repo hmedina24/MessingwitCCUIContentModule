@@ -21,7 +21,7 @@
 #endif
 
 @class CCUIContentModuleContentContainerView; 
-static void (*_logos_orig$_ungrouped$CCUIContentModuleContentContainerView$layoutSubViews)(_LOGOS_SELF_TYPE_NORMAL CCUIContentModuleContentContainerView* _LOGOS_SELF_CONST, SEL); static void _logos_method$_ungrouped$CCUIContentModuleContentContainerView$layoutSubViews(_LOGOS_SELF_TYPE_NORMAL CCUIContentModuleContentContainerView* _LOGOS_SELF_CONST, SEL); 
+static void (*_logos_orig$_ungrouped$CCUIContentModuleContentContainerView$setFrame$)(_LOGOS_SELF_TYPE_NORMAL CCUIContentModuleContentContainerView* _LOGOS_SELF_CONST, SEL, CGRect); static void _logos_method$_ungrouped$CCUIContentModuleContentContainerView$setFrame$(_LOGOS_SELF_TYPE_NORMAL CCUIContentModuleContentContainerView* _LOGOS_SELF_CONST, SEL, CGRect); 
 
 #line 1 "Tweak.xm"
 @interface CCUIContentModuleContentContainerView : UIView {
@@ -30,12 +30,98 @@ static void (*_logos_orig$_ungrouped$CCUIContentModuleContentContainerView$layou
 
 @end
 
-static void _logos_method$_ungrouped$CCUIContentModuleContentContainerView$layoutSubViews(_LOGOS_SELF_TYPE_NORMAL CCUIContentModuleContentContainerView* _LOGOS_SELF_CONST __unused self, SEL __unused _cmd){
-	_logos_orig$_ungrouped$CCUIContentModuleContentContainerView$layoutSubViews(self, _cmd);
-	UIView * myView = MSHookIvar<UIView *>(self, "_view");
-	myView = [[UIView alloc] initWithFrame: CGRectMake(85,-182.5,153,153)];
+static void _logos_method$_ungrouped$CCUIContentModuleContentContainerView$setFrame$(_LOGOS_SELF_TYPE_NORMAL CCUIContentModuleContentContainerView* _LOGOS_SELF_CONST __unused self, SEL __unused _cmd, CGRect arg1) {
+	
+	
+
+	
+	CGRect original = arg1;
+	
+	CGRect newFrame = CGRectMake(original.origin.x + 58, original.origin.y - 155.5, original.size.width, original.size.height);
+	
+	_logos_orig$_ungrouped$CCUIContentModuleContentContainerView$setFrame$(self, _cmd, newFrame);
+	
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 static __attribute__((constructor)) void _logosLocalInit() {
-{Class _logos_class$_ungrouped$CCUIContentModuleContentContainerView = objc_getClass("CCUIContentModuleContentContainerView"); MSHookMessageEx(_logos_class$_ungrouped$CCUIContentModuleContentContainerView, @selector(layoutSubViews), (IMP)&_logos_method$_ungrouped$CCUIContentModuleContentContainerView$layoutSubViews, (IMP*)&_logos_orig$_ungrouped$CCUIContentModuleContentContainerView$layoutSubViews);} }
-#line 13 "Tweak.xm"
+{Class _logos_class$_ungrouped$CCUIContentModuleContentContainerView = objc_getClass("CCUIContentModuleContentContainerView"); MSHookMessageEx(_logos_class$_ungrouped$CCUIContentModuleContentContainerView, @selector(setFrame:), (IMP)&_logos_method$_ungrouped$CCUIContentModuleContentContainerView$setFrame$, (IMP*)&_logos_orig$_ungrouped$CCUIContentModuleContentContainerView$setFrame$);} }
+#line 99 "Tweak.xm"
