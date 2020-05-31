@@ -3,17 +3,26 @@
 }
 
 @end
+
 %hook CCUIContentModuleContentContainerView
-- (void)setFrame:(CGRect)arg1 {
+
+- (void)didMoveToWindow {
+
+	%orig;
 	
-	/* UIView * myView = MSHookIvar<UIView *>(self, "_view");
-	myView = [[UIView alloc] initWithFrame: CGRectMake(85,-182.5,153,153)]; */
+	UIView * myView = MSHookIvar<UIView *>(self, "_containerView");
 	
-	CGRect original = arg1;
+	CGRect newFrame = myView.bounds;
 	
-	CGRect newFrame = CGRectMake(original.origin.x + 58, original.origin.y - 155.5, original.size.width, original.size.height);
+	newFrame.origin.x = myView.bounds.origin.x + 58;
 	
-	%orig(newFrame);
+	if ([self.moduleIdentifier isEqualToString:@"com.apple.control-center.ConnectivityModule]) {
+	
+		[myView setFrame:newFrame];
+	
+	}
+	
+	// CGRect newFrame = CGRectMake(original.origin.x + 58, original.origin.y - 155.5, original.size.width, original.size.height);
 	
 }
 %end
