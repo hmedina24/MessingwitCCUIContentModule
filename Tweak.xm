@@ -4,7 +4,7 @@
 
 @end
 %hook CCUIContentModuleContentContainerView
--(void)layoutSubViews{
+-(id)initWithFrame:(CGRect)arg1{
 	%orig;
 	UIView * myView = MSHookIvar<UIView *>(self, "_view");
 	myView = [[UIView alloc] initWithFrame: CGRectMake(85,-182.5,153,153)];
