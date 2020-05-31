@@ -1,7 +1,7 @@
 @interface CCUIContentModuleContentContainerView : UIView {
 	UIView * _view;
 }
-
+@property (nonatomic, assign) NSString *moduleIdentifier;
 @end
 
 %hook CCUIContentModuleContentContainerView
